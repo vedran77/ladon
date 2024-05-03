@@ -1,6 +1,7 @@
 import { Logger } from "../logger";
 import { TeamSpeak } from "ts3-nodejs-library";
 import { uid } from "uid";
+import { ExtendedConnection } from "./ExtendedConnection";
 
 class ConnectionManager {
 	private static _instance: ConnectionManager;
