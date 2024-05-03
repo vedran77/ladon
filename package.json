@@ -1,0 +1,44 @@
+{
+	"name": "ladon",
+	"version": "0.0.1-dev",
+	"description": "Ladon is a versatile framework designed for creating powerful TS3 (TeamSpeak 3) query bots. With Ladon, developers can effortlessly implement commands, handle events, and utilize a variety of utility functions to enhance their bot's capabilities. Whether it's managing channels, moderating discussions, or automating tasks, Ladon provides a robust foundation for building intelligent and responsive bots tailored to specific community needs.",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vedran77/ladon.git"
+	},
+	"type": "module",
+	"keywords": [
+		"TS3",
+		"Bots",
+		"Bot",
+		"QueryBot",
+		"TeamSpeakBot",
+		"TeamSpeak3Bot",
+		"TeamSpeakBot",
+		"TeamSpeak",
+		"TS"
+	],
+	"author": "vedran77",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vedran77/ladon/issues"
+	},
+	"homepage": "https://github.com/vedran77/ladon#readme",
+	"dependencies": {
+		"chalk": "^5.3.0",
+		"dotenv": "^16.4.5",
+		"fs": "^0.0.1-security",
+		"lodash": "^4.17.21",
+		"ts3-nodejs-library": "^3.5.1"
+	},
+	"devDependencies": {
+		"@types/chalk": "^2.2.0",
+		"@types/dotenv": "^8.2.0",
+		"@types/lodash": "^4.17.0",
+		"@types/ts3-nodejs-library": "^2.0.1"
+	}
+}
