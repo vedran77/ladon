@@ -32,7 +32,8 @@
 		"dotenv": "^16.4.5",
 		"fs": "^0.0.1-security",
 		"lodash": "^4.17.21",
-		"ts3-nodejs-library": "^3.5.1"
+		"ts3-nodejs-library": "^3.5.1",
+		"uid": "^2.0.2"
 	},
 	"devDependencies": {
 		"@types/chalk": "^2.2.0",

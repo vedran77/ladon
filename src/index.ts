@@ -1,2 +1,2 @@
 export * from "./logger";
-export * from "./connector";
+export * from "./connection-manager";
