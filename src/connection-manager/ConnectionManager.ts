@@ -20,14 +20,16 @@ class ConnectionManager {
 	/**
 	 * @description Spawns a new connection
 	 * @param {Partial<TeamSpeak.ConnectionParams>} options options
-	 * @returns {string} connectionId
+	 * @returns {ExtendedConnection | null} connectionId
 	 */
-	public async spawn(options: Partial<TeamSpeak.ConnectionParams>): Promise<string> {
+	public async spawn(options: Partial<TeamSpeak.ConnectionParams>): Promise<ExtendedConnection | null> {
 		const connectionId: string = uid(32);
+		let connection: ExtendedConnection | null = null;
 
 		try {
 			const tsInstance: TeamSpeak = new TeamSpeak(options);
-			const connection = await tsInstance.connect();
+			connection = await tsInstance.connect();
+			connection.connectionId = connectionId;
 
 			this._connections.set(connectionId, connection);
 			Logger.instance.success("connection-manager", {
@@ -40,7 +42,7 @@ class ConnectionManager {
 			});
 		}
 
-		return connectionId;
+		return connection;
 	}
 
 	/**
