@@ -3,6 +3,11 @@ import { TeamSpeak } from "ts3-nodejs-library";
 import { uid } from "uid";
 import { ExtendedConnection } from "./ExtendedConnection";
 
+interface SpawnOptions extends Partial<TeamSpeak.ConnectionParams> {
+	botColor?: string;
+	prefix?: string;
+}
+
 class ConnectionManager {
 	private static _instance: ConnectionManager;
 
@@ -22,14 +27,28 @@ class ConnectionManager {
 	 * @param {Partial<TeamSpeak.ConnectionParams>} options options
 	 * @returns {ExtendedConnection | null} connectionId
 	 */
-	public async spawn(options: Partial<TeamSpeak.ConnectionParams>): Promise<ExtendedConnection | null> {
+	public async spawn(options: SpawnOptions): Promise<ExtendedConnection | null> {
 		const connectionId: string = uid(32);
 		let connection: ExtendedConnection | null = null;
 
 		try {
-			const tsInstance: TeamSpeak = new TeamSpeak(options);
+			const { botColor, prefix, ...rest } = options;
+			const tsInstance: TeamSpeak = new TeamSpeak(rest);
+
 			connection = await tsInstance.connect();
 			connection.connectionId = connectionId;
+
+			if (botColor) {
+				connection.botColor = botColor;
+			} else {
+				connection.botColor = "#ff0000";
+			}
+
+			if (prefix) {
+				connection.botPrefix = prefix;
+			} else {
+				connection.botPrefix = "!";
+			}
 
 			this._connections.set(connectionId, connection);
 			Logger.instance.success("connection-manager", {
