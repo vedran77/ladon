@@ -51,8 +51,7 @@ class Command {
 					if (!!command.fullText) {
 						if (_.isUndefined(args[0])) {
 							client.message(
-								`[b]${connection.botColor} USAGE: [color=#FFFFFF] ${connection.botPrefix}${
-									command.name
+								`[b]${connection.botColor} USAGE: [color=#FFFFFF] ${connection.botPrefix}${command.name
 								} [ ${_.get(command, "args.0.name")} ]`
 							);
 							return;
