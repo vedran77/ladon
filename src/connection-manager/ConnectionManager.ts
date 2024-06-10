@@ -2,6 +2,7 @@ import { Logger } from "../logger";
 import { TeamSpeak } from "ts3-nodejs-library";
 import { uid } from "uid";
 import { ExtendedConnection } from "./ExtendedConnection";
+import { Command } from "command-manager";
 
 interface SpawnOptions extends Partial<TeamSpeak.ConnectionParams> {
 	botColor?: string;
@@ -49,6 +50,12 @@ class ConnectionManager {
 			} else {
 				connection.botPrefix = "!";
 			}
+
+			connection.on("textmessage", (textMessage) => {
+				if (textMessage.msg.startsWith(connection!.botPrefix as string)) {
+					Command.callCommand(connectionId, textMessage.invoker, textMessage.msg);
+				}
+			});
 
 			this._connections.set(connectionId, connection);
 			Logger.instance.success("connection-manager", {
