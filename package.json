@@ -1,5 +1,5 @@
 {
-	"name": "ladon",
+	"name": "ts3-ladon",
 	"version": "0.0.1-dev",
 	"description": "Ladon is a versatile framework designed for creating powerful TS3 (TeamSpeak 3) query bots. With Ladon, developers can effortlessly implement commands, handle events, and utilize a variety of utility functions to enhance their bot's capabilities. Whether it's managing channels, moderating discussions, or automating tasks, Ladon provides a robust foundation for building intelligent and responsive bots tailored to specific community needs.",
 	"main": "bin/index.js",
