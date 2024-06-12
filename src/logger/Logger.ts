@@ -41,8 +41,7 @@ class Logger {
 
 	public debug(eventName: string, meta?: any) {
 		console.debug(
-			`[${chalk.bgMagenta(eventName)}] ${
-				meta ? JSON.stringify(meta) : ""
+			`[${chalk.bgMagenta(eventName)}] ${meta ? JSON.stringify(meta) : ""
 			}`
 		);
 	}

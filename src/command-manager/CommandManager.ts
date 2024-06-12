@@ -2,8 +2,7 @@ import _ from "lodash";
 
 import { TeamSpeakClient } from "ts3-nodejs-library";
 import { CommandArgument, ICommand } from "./ICommand";
-import { ExtendedConnection } from "connection-manager/ExtendedConnection";
-import { ConnectionManager } from "connection-manager";
+import { ConnectionManager, ExtendedConnection } from "../connection-manager";
 
 class Command {
 	private static _commandList: Map<

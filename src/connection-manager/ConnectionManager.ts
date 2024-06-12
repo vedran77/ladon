@@ -2,7 +2,7 @@ import { Logger } from "../logger";
 import { TeamSpeak } from "ts3-nodejs-library";
 import { uid } from "uid";
 import { ExtendedConnection } from "./ExtendedConnection";
-import { Command } from "command-manager";
+import { Command } from "../command-manager";
 
 interface SpawnOptions extends Partial<TeamSpeak.ConnectionParams> {
 	botColor?: string;
@@ -12,7 +12,7 @@ interface SpawnOptions extends Partial<TeamSpeak.ConnectionParams> {
 class ConnectionManager {
 	private static _instance: ConnectionManager;
 
-	private _connections: Map<string, TeamSpeak>;
+	private _connections: Map<string, TeamSpeak> = new Map();
 
 	public static get instance(): ConnectionManager {
 		if (!this._instance) {
